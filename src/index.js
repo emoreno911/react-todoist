@@ -1,8 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './reducers';
 import App from './App';
+import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const initialState = { 
+  todos: [
+    {id:1534308748708, text:'Do homework', completed: false},
+    {id:1534328648709, text:'Do breakfast', completed: true}
+  ] 
+};
+const store = createStore(rootReducer, initialState);
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
 registerServiceWorker();

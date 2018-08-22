@@ -132,7 +132,7 @@ body {
   text-decoration: none;
   font-size: 20px;
   cursor: pointer;
-  margin-left: -23px;
+  margin-left: -20px;
   transition: all .4s ease;
 }
 .todo-container article h5:hover .btn-remove {
@@ -187,16 +187,34 @@ body {
   cursor: pointer;
 }
 
+/** Filters **/
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+}
+.filters a {
+  border-radius: 2px;
+  text-decoration: none;
+  margin-right: 15px;
+  color: white;
+  font-size: 14px;
+}
+.filters a.active {
+  color: #ffc107;
+}
+
 /** animations **/
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
 }
 
-@keyframes fadeInLeftBig {
+@keyframes fadeInTop {
   from {
     opacity: 0;
-    transform: translate3d(-800px, 0, 0);
+    transform: translate3d(0, -20px, 0);
   }
 
   to {
@@ -205,21 +223,6 @@ body {
   }
 }
 
-.fadeInLeftBig {
-  animation-name: fadeInLeftBig;
-}
-
-@keyframes fadeOutRightBig {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    transform: translate3d(2000px, 0, 0);
-  }
-}
-
-.fadeOutRightBig {
-  animation-name: fadeOutRightBig;
+.fadeInTop {
+  animation-name: fadeInTop;
 }
