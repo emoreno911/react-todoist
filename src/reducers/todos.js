@@ -1,3 +1,4 @@
+import localforage from 'localforage';
 import {
 	ADD_TODO,
 	REMOVE_TODO,
@@ -33,21 +34,30 @@ const todo = (state, action) => {
 };
 
 const todos = (state= [], action) => {
+	var result;
 	switch (action.type) {
 		case ADD_TODO:
-			return [
+			result = [
 				...state,
 				todo(undefined, action)
 			];
+
+			localforage.setItem('todos_list', result);
+			return result;
 		case REMOVE_TODO:
-			/*return state.map(t =>
+			/*const result = state.map(t =>
 				todo(t, action)
 			);*/
-			return state.filter(todo => todo.id !== action.id);
+			result = state.filter(todo => todo.id !== action.id);
+			localforage.setItem('todos_list', result);
+			return result;
 		case TOGGLE_TODO:
-			return state.map(t =>
+			result = state.map(t =>
 				todo(t, action)
 			);
+
+			localforage.setItem('todos_list', result);
+			return result;
 		default:
 			return state;
 	}
