@@ -32,7 +32,7 @@ const Todo = (props) => {
 	const { onToggleTodo, onRemoveTodo } = props;
 	const { id, text, completed } = props.data;
 	return (
-		<article className={`animated fadeInTop`}>
+		<article className={`animated`}>
 			<h5>
 				<a href="#" className="btn-remove" onClick={e => {onRemoveTodo(id)}}>&times;</a> &nbsp;
 				<span className={completed ? 'completed' : null}>{ text }</span>

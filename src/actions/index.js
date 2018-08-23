@@ -4,6 +4,7 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
+export const SORT_TODO = 'SORT_TODO';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 
 /*
@@ -37,6 +38,14 @@ export function toggleTodo(id) {
   return { 
     type: TOGGLE_TODO, 
     id 
+  }
+}
+
+export function sortTodo(from, to) {
+  return { 
+    type: SORT_TODO, 
+    from,
+    to
   }
 }
 

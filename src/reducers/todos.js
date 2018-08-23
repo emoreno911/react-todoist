@@ -2,7 +2,8 @@ import localforage from 'localforage';
 import {
 	ADD_TODO,
 	REMOVE_TODO,
-  TOGGLE_TODO
+	TOGGLE_TODO,
+	SORT_TODO
 } from '../actions';
 
 const todo = (state, action) => {
@@ -56,6 +57,14 @@ const todos = (state= [], action) => {
 				todo(t, action)
 			);
 
+			localforage.setItem('todos_list', result);
+			return result;
+		case SORT_TODO:
+			result = state.slice(0);
+			const {from, to} = action;
+			const val = result[from];
+			result.splice(from, 1);
+			result.splice(to, 0, val);
 			localforage.setItem('todos_list', result);
 			return result;
 		default:
